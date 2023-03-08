@@ -1,0 +1,67 @@
+#include <stdio.h>
+
+#include <stdlib.h>
+
+#include "history.h"
+
+#include "tokenizer.h"
+
+
+
+// Initialize the history list and return a pointer to it
+
+List *init_history()
+
+{
+
+  // Create a pointer to the history list
+
+  List *history_list;
+
+  // Initialize the pointer to NULL
+
+  history_list = NULL;
+
+  // Allocate memory for the history list using malloc()
+
+  history_list = malloc(sizeof(List));
+
+  // Return a pointer to the initialized history list
+
+  return history_list;
+
+}
+
+
+
+// Add a new string to the history list
+
+void add_history(List *list, char *string)
+
+{
+
+  // Allocate memory for a new item in the history list
+
+  Item *new_item = (Item*) malloc(sizeof(Item));
+
+  // Find the length of the new string
+
+  int string_length = 0;
+
+  while(string[string_length] != '\0'){
+
+    string_length++;
+
+  }
+
+  // Copy the new string to the new item in the history list
+
+  new_item->str = copy_str(string, string_length);
+
+
+
+  // If the history list is empty, add the new item as the root
+
+  if(list->root == NULL){
+
+        l
